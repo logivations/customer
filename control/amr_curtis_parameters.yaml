@@ -1,0 +1,6 @@
+# Parameters for the curtis controller
+/**:
+  f2a_parameters_manager:
+    ros__parameters:
+      # go backwards up the wrapping machine
+      f2a.pickup_drive_current_limit: 62
