@@ -1,0 +1,7 @@
+# We cannot load a list of lists as a parameter, so instead we put all the planes in the same list
+# with an implicit seperation. They will be seperated in the code
+# plane: [a1, b1, c1, d1, a2, b2, c2, d2,...] where ax+by+cz+d=0 (equation of a plane)
+/**:
+  plane_clipper:
+    ros__parameters:
+      planes: [1.0, 0.0, 0.0, -1.75] # At least 1 plane (4 parameters) is mandatory
