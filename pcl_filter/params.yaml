@@ -4,4 +4,8 @@
 /**:
   plane_clipper:
     ros__parameters:
-      planes: [1.0, 0.0, 0.0, -1.75] # At least 1 plane (4 parameters) is mandatory
+      # increase z to make plane flatter
+      planes: [1.0, 0.0, 0.0, -1.7, -0.02, -0.02, -0.08, 0.0244, 0.02, -0.02, 0.08, -0.0244] # At least 1 plane (4 parameters) is mandatory
+      set_plane_negative: [False, True, False] # List of bools to set the direction of cropping, 1 for each plane
+      vFOV: 120
+      hFOV: 120      
