@@ -4,9 +4,8 @@
       ros__parameters:
         footprint: "[[1.485, 0.4], [1.485, -0.4], [-0.35, -0.4], [-0.35, 0.4]]"
         inflation_layer:
-          cost_scaling_factor: 8.0
-          inflation_radius: 1.2
-      
+          cost_scaling_factor: 2.0
+          inflation_radius: 2.5
         stvl_layer:
           voxel_decay: 5.
           mark_threshold: 2
@@ -17,6 +16,15 @@
       ros__parameters:
         footprint: "[[1.485, 0.4], [1.485, -0.4], [-0.35, -0.4], [-0.35, 0.4]]"
 
+  planner_server:
+    ros__parameters:
+      SmacPlannerHybrid:
+        smooth_path: true # Whether to smooth searched path TODO check if it works now
+        minimum_turning_radius: 1.5 # For SE2 node & smoother: minimum turning radius in m of path / vehicle
+        reverse_penalty: 1.5 # For Reeds-Shepp model: penalty to apply if motion is reversing, must be => 1
+        cost_penalty: 2.7 # For Hybrid nodes: penalty to apply to higher cost areas when adding into the obstacle map dynamic programming distance expansion heuristic. This drives the robot more towards the center of passages. A value between 1.3 - 3.5 is reasonable.
+        
+        
 
   controller_server:
     ros__parameters:
@@ -33,8 +41,12 @@
       GeneralFollowPath: &GeneralFollowPath
         # Obstacles
         min_obstacle_dist: 0.55
-        inflation_dist: 1.2
-        weight_viapoint: 0.1
+        inflation_dist: 1.3
+        weight_inflation: 0.5
+        weight_viapoint: 0.2
+        weight_kinematics_forward_drive: 0.05
+        max_number_classes: 2
+        via_points_ordered: True
         
       LaneFollowPath:
         # Obstacles
