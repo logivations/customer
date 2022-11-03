@@ -23,6 +23,11 @@
       general_goal_checker:
         xy_goal_tolerance: 1.1
         yaw_goal_tolerance: 1.2
+
+      # lower tolerance for reaching the final goal
+      exact_path_goal_checker:
+        xy_goal_tolerance: 0.2
+        yaw_goal_tolerance: 0.06
       
       # Remark: Yaml Anchors and aliases are not supported by rcl https://github.com/ros2/rcl/issues/563. We use pyYaml in get_config to workaround
       GeneralFollowPath: &GeneralFollowPath
