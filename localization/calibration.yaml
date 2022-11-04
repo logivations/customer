@@ -1,3 +1,4 @@
 /**:
   ros__parameters:
     jump_threshold: 1.0
+    max_distance_driven_without_camera: 45.0
