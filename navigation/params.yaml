@@ -36,7 +36,7 @@
       exact_path_goal_checker:
         plugin: "nav2_controller::SimpleGoalChecker"
         xy_goal_tolerance: 0.25
-        yaw_goal_tolerance: 0.08
+        yaw_goal_tolerance: 0.05
       
       # Remark: Yaml Anchors and aliases are not supported by rcl https://github.com/ros2/rcl/issues/563. We use pyYaml in get_config to workaround
       GeneralFollowPath: &GeneralFollowPath
