@@ -1,0 +1,16 @@
+/**:
+  pallet_transportation_action_servers:
+    ros__parameters:
+      side_offset: 0.4
+      consider_fillgrade: true
+      approach_goal_distance_meters: 0.5
+      platform_approach_goal_offset: 0.6
+      platform_approach_global_goal_offset: 0.5 # additional offset for the global goal only, so that AMR can drive backwards to local goal instead of sideways
+      platform_marker_size: 0.11
+      markers_to_w2mo_bin_distance: 1.0 # Positive if bin is behind markers (pre-approach goal adjustment)
+      goal_offset_x: -0.6 # Markers to goal  ## Negative is deeper in the bin ### if changed also change pallet_putdown_to_platform.xml line 58
+      goal_offset_y: 0.0 # Positive is to the right
+      angular_goal_adjustment: 0.0 # Positive is counterclockwise
+      lift_height_for_pickup: 0.078 # Fork lift level change to lift the pallet ## 14->18cm for the basement
+      lift_height_for_driving_out: 0.1 # We lift the forks a bit higher when driving out of the platform
+  

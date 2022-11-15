@@ -1,7 +1,55 @@
-
-global_costmap:
+/**: 
   global_costmap:
+    global_costmap:
+      ros__parameters:
+        footprint: "[[1.485, 0.4], [1.485, -0.4], [-0.35, -0.4], [-0.35, 0.4]]"
+        inflation_layer:
+          cost_scaling_factor: 2.5
+          inflation_radius: 2.0
+        stvl_layer:
+          voxel_decay: 5.
+          mark_threshold: 2
+
+  
+  local_costmap:
+    local_costmap:
+      ros__parameters:
+        footprint: "[[1.485, 0.4], [1.485, -0.4], [-0.35, -0.4], [-0.35, 0.4]]"
+        stvl_layer:
+          voxel_decay: 10.
+
+  planner_server:
     ros__parameters:
-      inflation_layer:
-        cost_scaling_factor: 3.0
-        inflation_radius: 2.0
+      SmacPlannerHybrid:
+        minimum_turning_radius: 0.6 # For SE2 node & smoother: minimum turning radius in m of path / vehicle
+        reverse_penalty: 1.6 # For Reeds-Shepp model: penalty to apply if motion is reversing, must be => 1
+        
+        
+
+  controller_server:
+    ros__parameters:
+      general_goal_checker:
+        xy_goal_tolerance: 1.1
+        yaw_goal_tolerance: 1.2
+
+      # lower tolerance for reaching the final goal
+      exact_path_goal_checker:
+        plugin: "nav2_controller::SimpleGoalChecker"
+        xy_goal_tolerance: 0.25
+        yaw_goal_tolerance: 0.05
+      
+      # Remark: Yaml Anchors and aliases are not supported by rcl https://github.com/ros2/rcl/issues/563. We use pyYaml in get_config to workaround
+      GeneralFollowPath: &GeneralFollowPath
+        # Obstacles
+        min_obstacle_dist: 0.55
+        inflation_dist: 1.2
+        weight_viapoint: 0.3
+      LaneFollowPath:
+        # Obstacles
+        min_obstacle_dist: 0.55
+        weight_inflation: 0.4 
+        obstacle_poses_affected: 14
+
+      ExactGoalReachFollowPath:
+        control_look_ahead_poses: 4
+        max_global_plan_lookahead_dist: 4.0
