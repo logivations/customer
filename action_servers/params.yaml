@@ -1,0 +1,6 @@
+/**:
+  pallet_transportation_action_servers:
+    ros__parameters:
+      side_offset: 0.1
+      consider_fillgrade: false
+      approach_goal_distance_meters: 1.3
