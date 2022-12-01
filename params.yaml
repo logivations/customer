@@ -1,0 +1,4 @@
+/**:
+  barcode_scanner_manager:
+    ros__parameters:
+      valid_barcode_prefix: ""
