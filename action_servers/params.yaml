@@ -12,3 +12,8 @@
       angular_goal_adjustment: 0.0 # Positive is counterclockwise
       lift_height_for_pickup: 0.11 # Fork lift level change to lift the pallet ## 14->18cm for the basement
       lift_height_for_driving_out: 0.21 # We lift the forks a bit higher when driving out of the platform
+
+  assign_bin_to_amr_action_server:
+    ros__parameters:
+      bin_locking_distance_meters: 8.0 # distance when bin is reserved for sole use by this AMR. Designed to prevent issues when e.g. 2 AMRs try to put a pallet to the same bin
+      bin_unlocking_distance_meters: 3.0 # distance when bin is made available for other AMRs
