@@ -7,7 +7,7 @@
           cost_scaling_factor: 8.0
           inflation_radius: 1.2
       
-        stvl_layer:
+        stvl_general_layer:
           voxel_decay: 5.
           mark_threshold: 2
 
