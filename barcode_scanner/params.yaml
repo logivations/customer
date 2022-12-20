@@ -1,0 +1,4 @@
+/**:
+  barcode_scanner_manager:
+    ros__parameters:
+      distance_at_start_pos: 3.2

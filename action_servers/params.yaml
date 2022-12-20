@@ -17,3 +17,43 @@
     ros__parameters:
       bin_locking_distance_meters: 8.0 # distance when bin is reserved for sole use by this AMR. Designed to prevent issues when e.g. 2 AMRs try to put a pallet to the same bin
       bin_unlocking_distance_meters: 3.0 # distance when bin is made available for other AMRs
+
+  vehicles_intersection_action_servers:
+    ros__parameters:
+      reduce_speed_plan_occupied_by_amr:
+        no_reduce.distance: 9.0
+        no_reduce.speed: 1.0
+        max_reduce.distance: 3.0
+        max_reduce.speed: 0.0
+
+      reduce_speed_amr_near_plan:
+        no_reduce.distance: 8.0
+        no_reduce.speed: 1.0
+        max_reduce.distance: 2.0
+        max_reduce.speed: 0.0
+
+      reduce_speed_plan_occupied_by_forklift:
+        no_reduce.distance: 10.0
+        no_reduce.speed: 1.0
+        max_reduce.distance: 3.0
+        max_reduce.speed: 0.0
+
+      reduce_speed_forklift_near_plan:
+        no_reduce.distance: 7.0
+        no_reduce.speed: 1.0
+        max_reduce.distance: 0.5
+        max_reduce.speed: 0.0
+
+      reduce_speed_plan_occupied_by_amr_in_waiting_area:
+        no_reduce.distance: 6.0
+        no_reduce.speed: 1.0
+        max_reduce.distance: 2.0
+        max_reduce.speed: 0.0
+  
+  path_finding_action_servers:
+    ros__parameters:
+      distance_skip_following_w2mo_paths: 3.0 # the minimum limit for the build of a path with w2mo paths
+      threshold_distance_of_cut_off_start: 1.5 # threshold value of the distance between goal and following w2mo paths
+      threshold_distance_of_cut_off_end: 4.0 # threshold value of the distance between goal and following w2mo paths
+      max_distance_to_w2mo_path: 6.0 # follow w2mo path when this close to it
+      max_path_planning_length: 23.0 # max path planning length in ComputePathAlongWaypoints node
