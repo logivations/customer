@@ -23,7 +23,7 @@
       reduce_speed_plan_occupied_by_amr:
         no_reduce.distance: 9.0
         no_reduce.speed: 1.0
-        max_reduce.distance: 3.0
+        max_reduce.distance: 2.0
         max_reduce.speed: 0.0
 
       reduce_speed_amr_near_plan:
